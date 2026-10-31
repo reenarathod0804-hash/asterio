@@ -24,12 +24,12 @@ export function App() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('hype');
-  
+
   // Filter chips
   const [filterUnder250, setFilterUnder250] = useState(false);
   const [filterInStock, setFilterInStock] = useState(false);
   const [filterGrailsOnly, setFilterGrailsOnly] = useState(false);
-  
+
   // Modals & Drawers state
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -122,8 +122,8 @@ export function App() {
   // Cart operations
   const handleAddToCart = (productToAdd) => {
     setCartItems(prev => {
-      const existingIdx = prev.findIndex(item => 
-        item.id === productToAdd.id && 
+      const existingIdx = prev.findIndex(item =>
+        item.id === productToAdd.id &&
         item.selectedSize === productToAdd.selectedSize &&
         item.selectedColor === productToAdd.selectedColor
       );
@@ -182,7 +182,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#08090b] text-[#f4f4f2]">
-      
+
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[rgba(18,20,26,0.92)] border border-[rgba(255,255,255,0.14)] text-white px-4 py-2.5 rounded-full font-tech text-xs shadow-2xl backdrop-blur-xl flex items-center gap-2.5 max-w-[calc(100vw-2rem)]">
@@ -217,7 +217,7 @@ export function App() {
 
       {/* Main Footwear Catalog Section */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow">
-        
+
         {/* Category Selector Tabs & Filter Controls */}
         <CategoryFilter
           activeCategory={activeCategory}
@@ -278,16 +278,16 @@ export function App() {
       </main>
 
       {/* Community Fit Check / Lookbook Section */}
-      <LookbookSection 
-        onSelectProductById={handleSelectProductById} 
+      <LookbookSection
+        onSelectProductById={handleSelectProductById}
       />
 
       {/* Technical Innovations Bento Grid */}
-      <TechSpecsBento 
+      <TechSpecsBento
         onExploreTechClick={() => {
           showToast("Loading Asterio Material Archive...");
           setSelectedProduct(PRODUCTS[1]); // Opens Astrum Terra-X with Vibram & Cordura
-        }} 
+        }}
       />
 
       {/* Footer */}
